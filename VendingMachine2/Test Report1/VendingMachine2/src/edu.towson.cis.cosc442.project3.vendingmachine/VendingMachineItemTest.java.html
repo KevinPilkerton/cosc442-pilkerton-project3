@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>VendingMachineItemTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">AllTests (1) (Mar 3, 2017 2:55:20 PM)</a> &gt; <a href="../../index.html" class="el_group">VendingMachine2</a> &gt; <a href="../index.html" class="el_bundle">src</a> &gt; <a href="index.source.html" class="el_package">edu.towson.cis.cosc442.project3.vendingmachine</a> &gt; <span class="el_source">VendingMachineItemTest.java</span></div><h1>VendingMachineItemTest.java</h1><pre class="source lang-java linenums">package edu.towson.cis.cosc442.project3.vendingmachine;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+<span class="fc" id="L9">public class VendingMachineItemTest </span>
+{
+	VendingMachineItem item;
+
+	@Before
+	public void setUp() throws Exception
+	{
+<span class="fc" id="L16">		item = new VendingMachineItem(&quot;snack&quot;, 2.0);</span>
+<span class="fc" id="L17">	}</span>
+
+	/**
+	 * Test VendingMachineItem constructor for {@link VendingMachineItem} to see if a vending machine item can be created successfully.
+	 */
+	@Test
+	public void testVendingMachineItem() 
+	{
+<span class="fc" id="L25">		assertEquals(&quot;snack&quot;, item.getName());</span>
+<span class="fc" id="L26">		assertEquals(2.0, item.getPrice(), 0);</span>
+<span class="fc" id="L27">	}</span>
+	
+	/**
+	 * Test VendingMachineItem constructor for {@link VendingMachineItem} to see if an incorrect vending machine item can be created successfully.
+	 * Expected Result: VendingMachineException thrown.
+	 */
+	@Test(expected = VendingMachineException.class)
+	public void testVendingMachineItemForInvalidCreation()
+	{
+<span class="nc" id="L36">			VendingMachineItem v = new VendingMachineItem(&quot;1230&quot;, -1.00);</span>
+<span class="nc" id="L37">	}</span>
+
+	/**
+	 * Test getName method for {@link VendingMachineItem} to see if a vending machine items name can be returned properly.
+	 */
+	@Test
+	public void testGetName() 
+	{
+<span class="fc" id="L45">		assertEquals(&quot;snack&quot;, item.getName());</span>
+<span class="fc" id="L46">	}</span>
+	
+	/**
+	 * Test getPrice method for {@link VendingMachineItem} to see if a vending machine items price can be returned successfully.
+	 */
+	@Test
+	public void testGetPrice() 
+	{
+<span class="fc" id="L54">		assertEquals(2.0, item.getPrice(), 0);</span>
+<span class="fc" id="L55">	}</span>
+	
+	/**
+	 * Test getPrice method for {@link VendingMachineItem} to see if a vending machine items price can be returned successfully if the price is less than zero.
+	 * Expected Result: exception will be thrown because the price of an item cannot be negative.
+	 */
+	@Test(expected = VendingMachineException.class)
+	public void testGetPriceNegative() 
+	{
+<span class="nc" id="L64">		VendingMachineItem item2 = new VendingMachineItem(&quot;snack&quot;, -2.00);</span>
+<span class="nc" id="L65">		assertEquals(-2.00, item2.getPrice(), 0);</span>
+<span class="nc" id="L66">	}</span>
+	
+	@After
+	public void tearDown() throws Exception 
+	{
+<span class="fc" id="L71">		item = null;</span>
+<span class="fc" id="L72">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span>AllTests (1) (Mar 3, 2017 2:55:20 PM)</div></body></html>
